@@ -103,7 +103,7 @@ iframe{width:100%;height:420px;border:none;}
 
 <div class="error" id="error"></div>
 </div>
-
+<button onclick="downloadVideo()">Download Video</button>
 <script>
 let videoID="";
 
@@ -148,6 +148,13 @@ let player=document.getElementById("player");
 player.style.display="block";
 player.innerHTML=`<iframe src="https://www.youtube.com/embed/${videoID}?autoplay=1" allowfullscreen></iframe>`;
 }
+  function downloadVideo() {
+  const videoSrc = document.getElementById('player').querySelector('source').src;
+  const link = document.createElement('a');
+  link.href = videoSrc;
+  link.download = 'videeeo.mp4'; // आप फाइल नाम बदल सकते हैं
+  link.click();
+  }
 </script>
 
 </body>
